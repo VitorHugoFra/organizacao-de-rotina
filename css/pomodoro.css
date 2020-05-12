@@ -1,0 +1,181 @@
+/* PUC - CIÊNCIA DA COMPUTAÇÃO- DIW
+ * Author: Vitor Hugo França de Paula
+ * 01267683 - Vitor Hugo França de Paula
+ * Data: 5 de maio de 2020
+ */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #000 url(back3.jpg);
+  background-attachment: fixed;
+  background-blend-mode: hard-light;
+}
+
+.container {
+  position: absolute;
+  top: 80px;
+  left: 100px;
+  right: 100px;
+  bottom: 80px;
+  background: url(back3.jpg);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5), 0 0 0 100px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 span {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  font-size: 1em;
+}
+
+#timer {
+  color: #f00;
+  font-size: 50px;
+  margin: 10px auto;
+  border: 5px solid red;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  font-family: "Poppins", sans-serif;
+}
+
+#time {
+  margin-top: 60px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+#filler {
+  background: #ddffcc;
+  height: 0px;
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+}
+
+.drop {
+  --duration: 0.5s;
+  --easing: ease-in-out;
+  position: absolute;
+
+  width: 220px;
+  margin: 20px;
+}
+
+.drop ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.drop li {
+  margin: -4px 0 0 0;
+}
+
+.drop a {
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  transform-origin: 0 0;
+  transition: transform var(--duration) var(--easing),
+    color var(--duration) var(--easing);
+  transition-delay: var(--delay-out);
+  border-radius: 4px;
+  padding: 1em 1.52em;
+}
+
+.drop a:hover {
+  background: #efefef;
+}
+
+.drop .sub-menu a {
+  font-size: 0.9em;
+  color: #666666;
+  border-left: 2em solid white;
+  padding: 0.75em;
+  background: linear-gradient(to right, #dddddd 2px, #ffffff 2px);
+}
+
+.drop .sub-menu a:hover {
+  background: linear-gradient(to right, #dddddd 2px, #efefef 2px);
+}
+
+.drop header {
+  font-weight: 600;
+  display: block;
+  background: rgba(255, 255, 255, 0.5);
+  transform-origin: 0 0;
+  transition: transform var(--duration) var(--easing),
+    color var(--duration) var(--easing);
+  transition-delay: var(--delay-out);
+  border-radius: 4px;
+  padding: 1em 1.52em;
+}
+
+.drop header span {
+  border: none;
+  background: transparent;
+  font-size: 1.5em;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+  float: right;
+}
+
+.drop footer button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  padding: calc(1em - 2px);
+  width: 100%;
+  transform-origin: 0 0;
+  transition: transform var(--duration) var(--easing);
+  transition-delay: calc(var(--duration) + (0.1s * (var(--count) / 2)));
+  cursor: pointer;
+  outline: none;
+  background: #cdcdcd;
+  opacity: 0;
+}
+
+.drop.closed a,
+.drop.closed header {
+  transform: translateY(calc(var(--top) * -1)) scaleY(0.1) scaleX(0.2);
+  transition-delay: var(--delay-in);
+  color: transparent;
+}
+
+.drop.closed footer button {
+  transition-delay: 0s;
+  transform: scaleY(0.7) scaleX(0.2);
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (min-width: 601px) and (max-width: 980px) {
+}
+
+@media screen and (max-width: 1000px) {
+}
