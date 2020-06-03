@@ -113,9 +113,9 @@
         <div id="popup">
             <h2>Resuma a matéria vista
             </h2>
-            Ao resumir em poucas palavras, do jeito mais simples possivel seguindo a <a
-                href="https://www.youtube.com/watch?v=ks0lH-4H0sA">Técnica Feynman</a>. Se tiver confuso revise
-            <div class="input-group mb-3">
+            Ao resumir em poucas palavras, do jeito mais simples possivel seguindo a <a href="https://www.youtube.com/watch?v=ks0lH-4H0sA">Técnica Feynman</a>. Se tiver confuso revise
+            <form  action="" class="formContent" id="myform">
+                <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Upload</span>
                 </div>
@@ -123,15 +123,16 @@
                     <input type="file" class="custom-file-input" id="inputGroupFile01">
                     <label class="custom-file-label" for="inputGroupFile01">Escolher arquivo</label>
                 </div>
-            </div>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Escreva aqui</span>
                 </div>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-            </div>
-            <br>
-            <button type="button" class="btn btn-dark"><a href="#" id="Resumo" onclick="toggle()">Enviar</a></button>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Escreva aqui</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-dark"><a href="#" id="Resumo">Enviar</a></button>
+            </form>
         </div>
     </main>
 
@@ -166,11 +167,31 @@
         });
 
         function toggle() {
+
             var blur = document.getElementById('blur')
             blur.classList.toggle('active')
             var popup = document.getElementById('popup')
             popup.classList.toggle('active')
         }
+
+        var serialize = function (form) {
+            var json = {};
+            var data = new FormData(form);
+            var keys = data.keys();
+            for (var key = keys.next(); !key.done; key = keys.next()) {
+                var values = data.getAll(key.value);
+                json[key.value] = values.length == 1 ? values[0] : values;
+         }  
+            return json;
+        }
+
+        var form = document.querySelector("form");
+        var enviar = document.getElementById("Resumo");
+        enviar.addEventListener("click", function (event) {
+            event.preventDefault();
+            var json = serialize(form);	
+            console.log(json);
+        });
 
         // run animation once at beginning for demo
         setTimeout(function () {

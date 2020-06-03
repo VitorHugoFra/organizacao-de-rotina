@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #000 url(back3.jpg);
+  background: #000 url("../assets/Img/back3.jpg");
   background-attachment: fixed;
   background-blend-mode: hard-light;
 }
@@ -52,7 +52,7 @@ main#blur.active {
   left: 100px;
   right: 100px;
   bottom: 80px;
-  background: url(back3.jpg);
+  background: url("../assets/Img/back3.jpg");
   background-attachment: fixed;
   display: flex;
   justify-content: center;
