@@ -102,4 +102,23 @@ var pomodoro = {
 };
 window.onload = function () {
     pomodoro.init();
+    // carrega o ultimo identificador de usuário usado
+    nome.value = localStorage.getItem('name');
+    //inputGroupFile01.value = localStorage.getItem('file');
+    txtResumo.value = localStorage.getItem('txt');
+
+    // loga o usuário e registra o seu identificador
+    myform.onsubmit = (evento) => {
+        localStorage.setItem('name', nome.value);
+        //localStorage.setItem('file', inputGroupFile01.value);
+        localStorage.setItem('txt', txtResumo.value);
+        var blur = document.getElementById('blur')
+        blur.classList.toggle('active')
+        var popup = document.getElementById('popup')
+        popup.classList.toggle('active')
+        alert(`Materia ${nome.value}\n\nTxt: ${ txtResumo.value}`);
+
+        event.preventDefault();
+
+    };
 };

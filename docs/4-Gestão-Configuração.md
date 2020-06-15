@@ -1,6 +1,6 @@
 # Gestão de Configuração
 
-> Nesta parte do documento, você deve apresentar como foi realizada a
+> Nesta parte, apresentamos como foi realizada a
 > gestão de configuração do projeto. Isto é, como a ferramenta de
 > controle de versão foi configurada, bem como a hospedagem da
 > plataforma.
@@ -9,7 +9,7 @@
 
 A ferramenta de controle de versão adotada no projeto foi o
 [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
-foi utilizado para hospedagem do repositório `upstream`.
+foi utilizado para hospedagem do repositório `organizacao-de-rotina`.
 
 O projeto segue a seguinte convenção para o nome de branchs:
 
@@ -17,6 +17,7 @@ O projeto segue a seguinte convenção para o nome de branchs:
 - `unstable`: versão já testada do software, porém instável
 - `testing`: versão em testes do software
 - `dev`: versão de desenvolvimento do software
+- `doc`: versão de desenvolvimento da documentação
 
 Quanto à gerência de issues, o projeto adota a seguinte convenção para
 etiquetas:
@@ -25,23 +26,9 @@ etiquetas:
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
-> Discuta como a configuração do projeto foi feita na ferramenta de
-> versionamento escolhida. Exponha como a gerência de tags, merges,
-> commits e branchs é realizada. Discuta como a gerência de issues foi
-> realizada.
->
-> **Links Úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
-
 ## Hospedagem
 
-> Explique como a hospedagem e o lançamento da plataforma foi feita.
+> O site utiliza a plataforma do [Heroku](https://devcenter.heroku.com/start) como ambiente de hospedagem do >site do projeto .Ele por sua vez foi conectado ao github do projeto assim seu branch `master` que ao ser >alterado, por uma submissão (push) efetuada via git, a versão do código na hospedagem do Heroku também será >alterado automaticamente.
 >
-> **Links Úteis**:
->
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Crie seu Site com o
->   HostGator](https://www.hostgator.com.br/como-publicar-seu-site)
-> - [GoDady](https://br.godaddy.com/how-to)
-> - [GitHub Pages](https://pages.github.com/)
+> O site é mantido no ambiente da URL:
+> https://organizacao-de-rotina.herokuapp.com/
