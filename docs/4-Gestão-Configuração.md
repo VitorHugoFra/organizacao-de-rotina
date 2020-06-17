@@ -19,7 +19,7 @@ O projeto segue a seguinte convenção para o nome de branchs:
 - `dev`: versão de desenvolvimento do software
 - `doc`: versão de desenvolvimento da documentação
 
-Quanto à gerência de issues, o projeto adota a seguinte convenção para
+Quanto à gerência de tag, o projeto adota a seguinte convenção para
 etiquetas:
 
 - `bugfix`: uma funcionalidade encontra-se com problemas
@@ -28,7 +28,7 @@ etiquetas:
 
 ## Hospedagem
 
-> O site utiliza a plataforma do [Heroku](https://devcenter.heroku.com/start) como ambiente de hospedagem do >site do projeto .Ele por sua vez foi conectado ao github do projeto assim seu branch `master` que ao ser >alterado, por uma submissão (push) efetuada via git, a versão do código na hospedagem do Heroku também será >alterado automaticamente.
->
-> O site é mantido no ambiente da URL:
+O site utiliza a plataforma do [Heroku](https://devcenter.heroku.com/start) como ambiente de hospedagem do >site do projeto .Ele por sua vez foi conectado ao github do projeto assim seu branch `master` que ao ser >alterado, por uma submissão (push) efetuada via git, a versão do código na hospedagem do Heroku também será >alterado automaticamente.
+
+> = O site é mantido no ambiente da URL:
 > https://organizacao-de-rotina.herokuapp.com/
