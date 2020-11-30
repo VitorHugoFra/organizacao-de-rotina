@@ -38,7 +38,10 @@ public class DAO {
 			Class.forName(driverName);
 			conexao = DriverManager.getConnection(url, username, password);
 			status = (conexao == null);
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
+			System.err.println("Conexao nao efetuada com o postgres -- " + e.getMessage());
+		} catch (SQLException e) {
+			
 			System.err.println("Conexao nao efetuada com o postgres -- " + e.getMessage());
 		}
 
