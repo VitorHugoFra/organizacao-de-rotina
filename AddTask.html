@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="icon" type="imagem/png" href="assets/Img/logoFav.png" />
+    <link rel="stylesheet" href="styles/addTask.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>Adicionar tarefa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script>
+        // Página inicial de Login
+        const LOGIN_URL = "Login.html";
+        var cancelar = () => {
+            window.location.href = "Quadro.html"
+        }
+        // Objeto para o usuário corrente
+        var usuarioCorrente = {};
+        let verificar = () => {
+            usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+            if (usuarioCorrenteJSON) {
+                usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
+            }
+            if (!usuarioCorrente.login) {
+                window.location.href = LOGIN_URL;
+            }
+        }
+        onload = () => {
+            verificar()
+            let numTasks;
+            numTasks = localStorage.getItem('numTasks');
+            if (numTasks == null) {
+
+                numTasks = 0;
+                localStorage.setItem('numTasks', numTasks);
+            }
+
+            document.getElementById('addTask').addEventListener('submit', onSubmit);
+
+            function onSubmit(e) {
+
+                //alert("Enviando dados");
+                const task = {};
+
+                // pego o valor cadastrado no primeiro input do meu form
+                task.nome = e.target[0].value;
+                task.autor = usuarioCorrente.login;
+                task.days = [];
+                let c = 1;
+                while (c <= 7) {
+
+                    if (e.target[c].checked) {
+
+                        task.days.push(e.target[c].value);
+                    }
+                    c++;
+                }
+                task.start = e.target[8].value;
+                task.end = e.target[9].value;
+
+                localStorage.setItem('task' + numTasks, JSON.stringify(task));
+                numTasks++;
+                localStorage.setItem('numTasks', numTasks);
+            };
+        };
+    </script>
+
+</head>
+
+<body>
+    <h3 class="text-center text-white pt-5">Adicionar uma tarefa</h3>
+    <div class="container bg-light tela">
+        <form method="" id="addTask" action="http://localhost:6789/addTarefa">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Nome da tarefa</span>
+                </div>
+                <input type="text" name="nomeTarefa" class="form-control" id="nome"
+                    placeholder="Digite o nome da tarefa" autocomplete="off">
+            </div>
+
+            <p>Dias da semana</p>
+            <input type="checkbox" name="diaDaSemana" value="domingo">
+            <label>Domingo</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" name="diaDaSemana" value="segunda">
+            <label>Segunda</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" name="diaDaSemana" value="terca">
+            <label>Ter�a</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" name="diaDaSemana" value="quarta">
+            <label>Quarta</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" name="diaDaSemana" value="quinta">
+            <label>Quinta</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" name="diaDaSemana" value="sexta">
+            <label>Sexta</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" name="diaDaSemana" value="sabado">
+            <label>S�bado</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Horário início</span>
+                </div>
+
+                <input type="time" class="form-control" name="start" id="start">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Horário final</span>
+                </div>
+
+                <input type="time" class="form-control" name="end" id="end">
+            </div>
+            </select>
+            <br><br>
+
+            <button class="btn btn-dark" type="submit" id="sub">Enviar</button>
+            <button onclick="cancelar()" type="reset" value="Reset" class="btn btn-light">Cancelar
+
+            </button>
+
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
