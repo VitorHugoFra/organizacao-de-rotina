@@ -1,1 +1,1 @@
-<?php require_once("target/classes/public/index.html")?>
+<?php require("target/classes/public/index.html")?>
